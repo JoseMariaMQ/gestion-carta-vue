@@ -16,9 +16,9 @@
       </div>
       <!--   Formularios para nuevos platos, postres y bebidas   -->
       <FormNewDish v-if="section.dishes.length > 0" v-bind:id="section.id"></FormNewDish>
-      <FormNewDessert v-else-if="section.desserts.length > 0"></FormNewDessert>
-      <FormNewDrink v-else-if="section.drinks.length > 0"></FormNewDrink>
-      <FormNewChoose v-else-if="section.dishes.length < 1 && section.desserts.length < 1 && section.drinks.length < 1"></FormNewChoose>
+      <FormNewDessert v-else-if="section.desserts.length > 0" v-bind:id="section.id"></FormNewDessert>
+      <FormNewDrink v-else-if="section.drinks.length > 0" v-bind:id="section.id"></FormNewDrink>
+      <FormNewChoose v-else-if="section.dishes.length < 1 && section.desserts.length < 1 && section.drinks.length < 1" v-bind:id="section.id"></FormNewChoose>
 
       <form v-if="show.show1 && show.show2 === section.id" class="mb-3">
         <div class="form-group">
@@ -39,7 +39,10 @@
         <button type="submit" class="btn btn-primary btn-sm">EDITAR</button>
         <button @click="changeShow(section.id)" class="btn btn-danger btn-sm mx-2">CANCELAR</button>
       </form>
+
       <!--   Aquí van los platos, postres y bebidas   -->
+      <Dish v-bind:section="section"></Dish>
+
     </div>
   </div>
 </template>
@@ -50,6 +53,7 @@ import FormNewDish from "./FormNewDish";
 import FormNewDessert from "./FormNewDessert";
 import FormNewDrink from "./FormNewDrink";
 import FormNewChoose from "./FormNewChoose";
+import Dish from "./Dish";
 
 export default {
   name: "SectionEdit",
@@ -58,7 +62,8 @@ export default {
     FormNewDish,
     FormNewDessert,
     FormNewDrink,
-    FormNewChoose
+    FormNewChoose,
+    Dish
   },
   setup() {
     const show = reactive({

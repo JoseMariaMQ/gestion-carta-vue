@@ -1,20 +1,20 @@
 <template>
   <form class="mb-3">
     <div class="form-group">
-      <label>Título del plato</label>
-      <input type="text" class="form-control" placeholder="Introduce el nombre del plato"/>
+      <label>Título del postre</label>
+      <input type="text" class="form-control" placeholder="Introduce el nombre del postre"/>
       <small class="form-text text-muted">El título no debe de ser demasiado largo</small>
     </div>
 
     <div class="form-group">
-      <label>Precio del plato</label>
-      <input type="number" step=".01" class="form-control" placeholder="Introduce el precio del plato"/>
+      <label>Precio del postre</label>
+      <input type="number" step=".01" class="form-control" placeholder="Introduce el precio del postre"/>
       <small class="form-text text-muted"/>
     </div>
 
     <div class="form-group">
       <label>Unidades</label>
-      <input type="number" class="form-control" placeholder="Introduce las unidades que contiene el plato"/>
+      <input type="number" class="form-control" placeholder="Introduce las unidades que contiene el postre"/>
       <small class="form-text text-muted"/>
     </div>
 
@@ -36,7 +36,7 @@
 
     <div class="form-group">
       <label>Ingredientes</label>
-      <input type="text" class="form-control" placeholder="Introduce los ingredientes del plato"/>
+      <input type="text" class="form-control" placeholder="Introduce los ingredientes del postre"/>
       <small class="form-text text-muted"/>
     </div>
 
@@ -103,7 +103,7 @@
     </div>
 
     <div class="form-group mt-2">
-      <label>Imagen del plato</label>
+      <label>Imagen del postre</label>
       <input type="file" class="form-control"/>
       <small class="form-text text-muted">jpeg, jpg, png. Max: 512KB</small>
     </div>
@@ -113,7 +113,7 @@
 
 <script>
 export default {
-  name: "FormDish"
+  name: "FormDessert"
 }
 </script>
 
