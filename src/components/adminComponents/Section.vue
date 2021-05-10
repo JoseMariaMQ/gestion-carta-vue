@@ -21,7 +21,7 @@
       </div>
       <button type="submit" class="btn btn-primary mt-2">ACEPTAR</button>
     </form>
-    <SectionEdit v-bind:sections="menu"></SectionEdit>
+    <SectionEdit v-for="section in menu" :key="section.id" v-bind:section="section"></SectionEdit>
   </section>
 </template>
 

@@ -1,5 +1,10 @@
 <template>
   <header class="card-header text-center alert alert-danger">
+    <div class="d-flex justify-content-end">
+      <button v-if="!accessToken" @click="redirectLogin" class="btn"><FontAwesomeIcon :icon="['fas', 'sign-in-alt']" color="green"></FontAwesomeIcon></button>
+      <button v-if="getPath === '/' && accessToken" @click="redirectAdmin" class="btn"><FontAwesomeIcon :icon="['fas', 'user']" color="blue"></FontAwesomeIcon></button>
+      <button v-if="accessToken" @click="logout" class="btn"><FontAwesomeIcon :icon="['fas', 'sign-out-alt']" color="red"></FontAwesomeIcon></button>
+    </div>
     <h1 class="display-1 fw-bolder">
       <span>C</span>
       <span>U</span>
@@ -23,10 +28,12 @@
 <script>
 import {useFetchHeader} from "../hooks/useFetchHeader";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPhoneSquare, faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
+import { faPhoneSquare, faMapMarkedAlt, faSignInAlt, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsappSquare, faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faPhoneSquare, faMapMarkedAlt, faWhatsappSquare, faFacebookSquare, faInstagramSquare)
+import router from "../router";
+import {ref} from "vue";
+library.add(faPhoneSquare, faMapMarkedAlt, faWhatsappSquare, faFacebookSquare, faInstagramSquare, faSignInAlt, faSignOutAlt, faUser)
 
 export default {
   name: "Header",
@@ -34,7 +41,29 @@ export default {
     FontAwesomeIcon
   },
   setup() {
-    return {...useFetchHeader()}
+    const accessToken = ref(false)
+    const getPath = ref(window.location.pathname)
+
+    accessToken.value = localStorage.getItem('jwtToken') && new Date(localStorage.getItem('tokenExpires')).getTime() > Date.now()
+
+    const redirectLogin = () => {
+      router.push('login')
+    }
+
+    const logout = () => {
+      localStorage.removeItem('jwtToken')
+      localStorage.removeItem('tokenExpires')
+      accessToken.value = localStorage.getItem('jwtToken') && new Date(localStorage.getItem('tokenExpires')).getTime() > Date.now()
+      if (getPath.value !== '/') {
+        router.push('login')
+      }
+    }
+
+    const redirectAdmin = () => {
+      router.push('admin')
+    }
+
+    return {...useFetchHeader(), redirectLogin, accessToken, logout, getPath, redirectAdmin}
   }
 }
 </script>
