@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-end mb-2">
     <button @click="showForm" :class="newDish ? 'btn btn-danger btn-sm' : 'btn btn-success btn-sm'">{{newDish ? 'CANCELAR' : 'AÑADIR PLATO'}}</button>
   </div>
-  <FormDish v-if="newDish" v-bind:section_id="id"></FormDish>
+  <FormDish v-if="newDish" v-bind:section_id="id" v-bind:store="true"></FormDish>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ import FormDish from "./FormDish";
 
 export default {
   name: "FormNewDish",
-  props: ['id'],
+  props: ['id', 'store', 'update'],
   components: {
     FormDish
   },

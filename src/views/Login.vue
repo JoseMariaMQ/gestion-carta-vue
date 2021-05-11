@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="card-body">
-          <form @submit.prevent="onSubmit">
+          <form @submit.prevent="storeDish">
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">
@@ -80,12 +80,12 @@ export default {
       password: ''
     })
 
-    const onSubmit = async () => {
+    const storeDish = async () => {
       const res = await useFetchLogin(credentials)
       if (res) router.push('admin')
     }
 
-    return {credentials, onSubmit}
+    return {credentials, storeDish}
   }
 }
 </script>
