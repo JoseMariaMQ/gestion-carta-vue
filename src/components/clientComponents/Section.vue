@@ -24,6 +24,7 @@ import {useFetchMenu} from "../../hooks/useFecthMenu";
 import Dish from "./Dish";
 import Dessert from "./Dessert";
 import Drink from "./Drink";
+import {ref} from "vue";
 
 export default {
   name: "Section",
@@ -33,7 +34,8 @@ export default {
     Drink
   },
   setup() {
-    return {...useFetchMenu()}
+    const menu = ref(useFetchMenu())
+    return {menu}
   }
 }
 </script>

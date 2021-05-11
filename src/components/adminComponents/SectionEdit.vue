@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import {reactive, ref} from "vue";
+import {provide, reactive, ref} from "vue";
 import FormNewDish from "./FormNewDish";
 import FormNewDessert from "./FormNewDessert";
 import FormNewDrink from "./FormNewDrink";
@@ -75,6 +75,7 @@ export default {
       show2: null
     })
     const sectionProps = ref(props.section)
+    provide('sectionDish', sectionProps)
 
     const sectionDataUpdate = ref({
       name: sectionProps.value.name,

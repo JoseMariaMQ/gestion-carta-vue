@@ -1,5 +1,5 @@
 <template>
- <div v-for="dish in sectionProps.dishes" :key="dish.id">
+ <div v-for="dish in sectionDish.dishes" :key="dish.id">
     <div class="row alert alert-danger p-0 mb-2">
       <span class="col-2 col-sm-1 p-0">
         <img v-if="dish.picture" :src="dish.picture.url" alt="Dish" class="img-thumbnail img-children">
@@ -22,7 +22,7 @@
 
 <script>
 import FormDish from "./FormDish";
-import {reactive, ref} from "vue";
+import {inject, provide, reactive, ref} from "vue";
 import {useFetchDeleteDish} from "../../hooks/useFetchDeleteDish";
 import {useFetchUpdateDish} from "../../hooks/useFetchUpdateDish";
 
@@ -39,7 +39,10 @@ export default {
       show1: false,
       show2: null
     })
-    const sectionProps = ref(props.section)
+
+    const sectionDish = inject('sectionDish', props.section)
+
+    provide('show', show)
 
     /**
      * Show and hide the form for section update
@@ -63,7 +66,7 @@ export default {
      */
     const setHidden = async (hidden, id, section_id) => {
       const body = {'hidden': hidden}
-      sectionProps.value = await useFetchUpdateDish(body, false, id, section_id)
+      sectionDish.value = await useFetchUpdateDish(body, false, id, section_id)
     }
 
     /**
@@ -75,11 +78,11 @@ export default {
     const deleteDish = async (section_id, id) => {
       const confirm = window.confirm('Si eliminas este plato se eliminarán también todos sus componentes')
       if (confirm) {
-        sectionProps.value = await useFetchDeleteDish(section_id, id)
+        sectionDish.value = await useFetchDeleteDish(section_id, id)
       }
     }
 
-    return {show, sectionProps, changeShow, deleteDish, setHidden}
+    return {show, sectionDish, changeShow, deleteDish, setHidden}
   }
 }
 </script>

@@ -1,5 +1,6 @@
 import {useFetchGetSection} from "./useFetchGetSection";
 import {ref} from "vue";
+import {useFetchGetSections} from "./useFetchGetSections";
 
 export const useFetchStoreSection = async (data, media) => {
     const sectionStore = ref([])
@@ -22,7 +23,8 @@ export const useFetchStoreSection = async (data, media) => {
                 }
             })
         }
-        return await useFetchGetSection(sectionStore.value.data.id)
+        // return await useFetchGetSection(sectionStore.value.data.id)
+        return await useFetchGetSections()
     } catch (e) {
         console.log(e)
     }

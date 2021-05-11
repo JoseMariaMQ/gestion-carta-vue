@@ -1,6 +1,6 @@
 import {ref, onMounted} from 'vue'
 
-export const useFetchMenu = (url) => {
+export const useFetchMenu = () => {
     const menu = ref([])
 
     onMounted(async () => {
@@ -16,5 +16,5 @@ export const useFetchMenu = (url) => {
         }
     })
 
-    return {menu}
+    return menu
 }

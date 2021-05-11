@@ -44,59 +44,59 @@
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[0]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox1" value="1"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 1)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox1" value="1"/>
           <label class="form-check-label">Contiene gluten</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[1]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox2" value="2"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 2)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox2" value="2"/>
           <label class="form-check-label">Crustáceos</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[2]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox3" value="3"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 3)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox3" value="3"/>
           <label class="form-check-label" >Huevos</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[3]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox4" value="4"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 4)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox4" value="4"/>
           <label class="form-check-label">Pescado</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[4]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox5" value="5"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 5)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox5" value="5"/>
           <label class="form-check-label">Cacahuetes</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[5]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox6" value="6"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 6)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox6" value="6"/>
           <label class="form-check-label">Soja</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[6]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox7" value="7"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 7)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox7" value="7"/>
           <label class="form-check-label">Lácteos</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[7]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox8" value="8"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 8)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox8" value="8"/>
           <label class="form-check-label">Frutos de cáscara</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[8]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox9" value="9"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 9)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox9" value="9"/>
           <label class="form-check-label">Apio</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[9]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox10" value="10"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 10)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox10" value="10"/>
           <label class="form-check-label">Mostaza</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[10]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox11" value="11"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 11)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox11" value="11"/>
           <label class="form-check-label">Granos de sésamo</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[11]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox12" value="12"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 12)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox12" value="12"/>
           <label class="form-check-label" >Dioxido de azufre y sulfitos</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[12]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox13" value="13"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 13)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox13" value="13"/>
           <label class="form-check-label">Moluscos</label>
         </div>
         <div class="col form-check">
-          <input class="form-check-input" type="checkbox" :checked="dishDataStoreUpdate.allergens_id[13]" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox14" value="14"/>
+          <input class="form-check-input" type="checkbox" :checked="dish?.allergens.some(allergen => allergen.id === 14)" v-model="dishDataStoreUpdate.allergens_id" id="inlineCheckbox14" value="14"/>
           <label class="form-check-label">Altramuces</label>
         </div>
       </div>
@@ -113,7 +113,7 @@
 
 <script>
 import {useFetchStoreDish} from "../../hooks/useFetchStoreDish";
-import {ref} from "vue";
+import {inject, ref} from "vue";
 import {useFetchUpdateDish} from "../../hooks/useFetchUpdateDish";
 
 export default {
@@ -125,6 +125,22 @@ export default {
     dish: Object
   },
   setup(props) {
+    const sectionDishUpdate = inject('sectionDish', undefined)
+    const show = inject('show', undefined)
+    const newDish = inject('newDish')
+    /**
+     * Show and hide the form for dish update
+     * @param id
+     */
+    const changeShow = (id) => {
+      if (show.show2 !== id && show.show1 === true) {
+        show.show2 = id
+        return
+      }
+      show.show2 = id
+      show.show1 = !show.show1
+    }
+
     const dishDataStoreUpdate = ref({
       name: props.update ? props.dish.name : '',
       price: props.update ? props.dish.price : '',
@@ -133,9 +149,8 @@ export default {
       hidden: props.update ? props.dish.hidden : 0,
       menu: props.update ? props.dish.menu : '',
       price_menu: props.update ? props.dish.price_menu : null,
-      ingredients: props.update ? props.dish.ingredients : null,
-      allergens_id: props.update && props.dish.allergens.length > 0 ? props.dish.allergens : [], //comprobar como seleccionar por defecto
-      section_id: props.section_id
+      ingredients: props.update ? props.dish.ingredients : '',
+      allergens_id: props.update && props.dish.allergens.length > 0 ? props.dish.allergens?.map(allergen => (allergen.id)) : [],
     })
 
     const media = new FormData()
@@ -149,15 +164,16 @@ export default {
       if (!dishDataStoreUpdate.value.units) delete dishDataStoreUpdate.value.units
       if (!dishDataStoreUpdate.value.price_menu) delete dishDataStoreUpdate.value.price_menu
       if (!dishDataStoreUpdate.value.allergens_id.length > 0) delete dishDataStoreUpdate.value.allergens_id
-      if (store) {
-        await useFetchStoreDish(dishDataStoreUpdate.value, media.values().next().value !== undefined ? media : false)
-        window.location.reload()
-      } else if (update) {
-        await useFetchUpdateDish(dishDataStoreUpdate.value, media.values().next().value !== undefined ? media : false)
+      if (props.store) {
+        sectionDishUpdate.value = await useFetchStoreDish(dishDataStoreUpdate.value, media.values().next().value !== undefined ? media : false, props.section_id)
+        newDish.value = !newDish.value
+      } else if (props.update) {
+        sectionDishUpdate.value = await useFetchUpdateDish(dishDataStoreUpdate.value, media.values().next().value !== undefined ? media : false, props.dish.id, props.dish.section_id)
+        changeShow(props.dish.id)
       }
     }
 
-    return {dishDataStoreUpdate: dishDataStoreUpdate, onFileSelected, storeUpdateDish}
+    return {dishDataStoreUpdate, onFileSelected, storeUpdateDish}
   }
 }
 </script>

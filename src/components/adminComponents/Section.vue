@@ -37,6 +37,9 @@ export default {
     SectionEdit
   },
   setup() {
+
+    const menu = ref(useFetchMenu())
+
     const newSection = ref(false)
     const showForm = () => {
       newSection.value = !newSection.value
@@ -53,11 +56,11 @@ export default {
     }
 
     const storeSection = async () => {
-      await useFetchStoreSection(sectionDataStore.value, media.values().next().value !== undefined ? media : false)
-      window.location.reload()
+      menu.value = await useFetchStoreSection(sectionDataStore.value, media.values().next().value !== undefined ? media : false)
+      newSection.value = !newSection.value
     }
 
-    return {showForm, newSection, sectionDataStore, onFileSelected, storeSection, ...useFetchMenu()}
+    return {showForm, newSection, sectionDataStore, onFileSelected, storeSection, menu}
   }
 }
 </script>

@@ -6,17 +6,22 @@
 </template>
 
 <script>
-import {ref} from "vue";
+import {provide, ref} from "vue";
 import FormDish from "./FormDish";
 
 export default {
   name: "FormNewDish",
-  props: ['id', 'store', 'update'],
+  props: {
+    id: Number,
+    store: Boolean,
+    update: Boolean
+  },
   components: {
     FormDish
   },
   setup() {
     const newDish = ref(false)
+    provide('newDish', newDish)
 
     const showForm = () => {
       newDish.value = !newDish.value
