@@ -32,12 +32,14 @@ export default {
     section_id: Number,
     store: Boolean,
     update: Boolean,
-    drink: Object
+    drink: Object,
+    choose: Boolean
   },
   setup(props) {
     const sectionDrinkUpdate = inject('section', undefined)
     const show = inject('showDrink', undefined)
     const newDrink = inject('newDrink', undefined)
+    const showChoose = inject('showChoose', undefined)
     /**
      * Show and hide the form for dish update
      * @param id
@@ -66,7 +68,8 @@ export default {
     const storeUpdateDrink = async () => {
       if (props.store) {
         sectionDrinkUpdate.value = await useFetchStoreDrink(drinkDataStoreUpdate.value, media.values().next().value !== undefined ? media : false, props.section_id)
-        newDrink.value = !newDrink.value
+        if (props.choose) showChoose.newDrink = !showChoose.newDrink
+        else newDrink.value = !newDrink.value
       } else if (props.update) {
         sectionDrinkUpdate.value = await useFetchUpdateDrink(drinkDataStoreUpdate.value, media.values().next().value !== undefined ? media : false, props.drink.id, props.drink.section_id)
         changeShow(props.drink.id)

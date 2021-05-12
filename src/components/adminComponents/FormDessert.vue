@@ -122,12 +122,14 @@ export default {
     section_id: Number,
     store: Boolean,
     update: Boolean,
-    dessert: Object
+    dessert: Object,
+    choose: Boolean
   },
   setup(props) {
     const sectionDessertUpdate = inject('section', undefined)
     const show = inject('showDessert', undefined)
     const newDessert = inject('newDessert', undefined)
+    const showChoose = inject('showChoose', undefined)
 
     /**
      * Show and hide the form for dessert update
@@ -167,7 +169,8 @@ export default {
       if (!dessertDataStoreUpdate.value.allergens_id.length > 0) delete dessertDataStoreUpdate.value.allergens_id
       if (props.store) {
         sectionDessertUpdate.value = await useFetchStoreDessert(dessertDataStoreUpdate.value, media.values().next().value !== undefined ? media : false, props.section_id)
-        newDessert.value = !newDessert.value
+        if (props.choose) showChoose.newDessert = !showChoose.newDessert
+        else newDessert.value = !newDessert.value
       } else if (props.update) {
         sectionDessertUpdate.value = await useFetchUpdateDessert(dessertDataStoreUpdate.value, media.values().next().value !== undefined ? media : false, props.dessert.id, props.dessert.section_id)
         changeShow(props.dessert.id)

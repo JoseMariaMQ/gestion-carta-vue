@@ -11,16 +11,16 @@
     </div>
   </div>
 
-  <FormDish v-if="show.newDish" v-bind:section_id="id"></FormDish>
-  <FormDessert v-if="show.newDessert" v-bind:section_id="id"></FormDessert>
-  <FormDrink v-if="show.newDrink" v-bind:section_id="id"></FormDrink>
+  <FormDish v-if="show.newDish" v-bind:section_id="id" v-bind:store="true" v-bind:choose="true"></FormDish>
+  <FormDessert v-if="show.newDessert" v-bind:section_id="id" v-bind:store="true" v-bind:choose="true"></FormDessert>
+  <FormDrink v-if="show.newDrink" v-bind:section_id="id" v-bind:store="true" v-bind:choose="true"></FormDrink>
 </template>
 
 <script>
 import FormDish from "./FormDish";
 import FormDessert from "./FormDessert";
 import FormDrink from "./FormDrink";
-import {reactive} from "vue";
+import {provide, reactive} from "vue";
 
 export default {
   name: "FormNewChoose",
@@ -36,6 +36,7 @@ export default {
       newDessert: false,
       newDrink: false
     })
+    provide('showChoose', show)
 
     const showForm = (btn) => {
       if (btn === 'dish') show.newDish = !show.newDish

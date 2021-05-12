@@ -122,12 +122,14 @@ export default {
     section_id: Number,
     store: Boolean,
     update: Boolean,
-    dish: Object
+    dish: Object,
+    choose: Boolean
   },
   setup(props) {
     const sectionDishUpdate = inject('section', undefined)
     const show = inject('showDish', undefined)
     const newDish = inject('newDish', undefined)
+    const showChoose = inject('showChoose', undefined)
     /**
      * Show and hide the form for dish update
      * @param id
@@ -166,7 +168,8 @@ export default {
       if (!dishDataStoreUpdate.value.allergens_id.length > 0) delete dishDataStoreUpdate.value.allergens_id
       if (props.store) {
         sectionDishUpdate.value = await useFetchStoreDish(dishDataStoreUpdate.value, media.values().next().value !== undefined ? media : false, props.section_id)
-        newDish.value = !newDish.value
+        if (props.choose) showChoose.newDish = !showChoose.newDish
+        else newDish.value = !newDish.value
       } else if (props.update) {
         sectionDishUpdate.value = await useFetchUpdateDish(dishDataStoreUpdate.value, media.values().next().value !== undefined ? media : false, props.dish.id, props.dish.section_id)
         changeShow(props.dish.id)
