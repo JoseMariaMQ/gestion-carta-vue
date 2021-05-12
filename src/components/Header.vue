@@ -13,12 +13,12 @@
       <span>'</span>
       <span>S</span>
     </h1>
-    <a v-for="contact in contacts" :key="contact.id" :href="contact.url" target="_blank" rel="noreferrer" class="mx-1">
+    <a v-for="contact in contacts" :key="contact.id" :href="contact.url" target="_blank" rel="noreferrer" class="mx-2">
       <FontAwesomeIcon v-if="contact.name.toLowerCase() === 'whatsapp'" :icon="['fab', 'whatsapp-square']" class="display-6"/>
       <FontAwesomeIcon v-if="contact.name.toLowerCase() === 'phone'" :icon="['fas', 'phone-square']" class="display-6"/>
       <FontAwesomeIcon v-if="contact.name.toLowerCase() === 'facebook'" :icon="['fab', 'facebook-square']" class="display-6"/>
       <FontAwesomeIcon v-if="contact.name.toLowerCase() === 'instagram'" :icon="['fab', 'instagram-square']" class="display-6"/>
-<!--      <FontAwesomeIcon v-if="contact.name.toLowerCase() === 'google maps'" :icon="['fas', 'map-marker-alt']" class="display-6"/>-->
+      <FontAwesomeIcon v-if="contact.name.toLowerCase() === 'google maps'" :icon="['fas', 'map-marker-alt']" class="display-6"/>
     </a>
 
 
@@ -28,12 +28,12 @@
 <script>
 import {useFetchHeader} from "../hooks/useFetchHeader";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPhoneSquare, faMapMarkedAlt, faSignInAlt, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faPhoneSquare, faMapMarkerAlt, faSignInAlt, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsappSquare, faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from "../router";
 import {ref} from "vue";
-library.add(faPhoneSquare, faMapMarkedAlt, faWhatsappSquare, faFacebookSquare, faInstagramSquare, faSignInAlt, faSignOutAlt, faUser)
+library.add(faPhoneSquare, faMapMarkerAlt, faWhatsappSquare, faFacebookSquare, faInstagramSquare, faSignInAlt, faSignOutAlt, faUser)
 
 export default {
   name: "Header",

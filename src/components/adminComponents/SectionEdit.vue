@@ -42,6 +42,7 @@
       <!--   Aquí van los platos, postres y bebidas   -->
       <Dish v-bind:section="sectionProps"></Dish>
       <Dessert v-bind:section="sectionProps"></Dessert>
+      <Drink v-bind:section="sectionProps"></Drink>
     </div>
 </template>
 
@@ -53,6 +54,7 @@ import FormNewDrink from "./FormNewDrink";
 import FormNewChoose from "./FormNewChoose";
 import Dish from "./Dish";
 import Dessert from "./Dessert";
+import Drink from "./Drink";
 import {useFetchUpdateSection} from "../../hooks/useFetchUpdateSection";
 import {useFetchDeleteSection} from "../../hooks/useFetchDeleteSection";
 
@@ -67,7 +69,8 @@ export default {
     FormNewDrink,
     FormNewChoose,
     Dish,
-    Dessert
+    Dessert,
+    Drink
   },
   setup(props) {
     const show = reactive({
