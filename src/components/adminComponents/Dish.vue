@@ -40,12 +40,12 @@ export default {
       show2: null
     })
 
-    const sectionDish = inject('sectionDish', props.section)
+    const sectionDish = inject('section', props.section)
 
-    provide('show', show)
+    provide('showDish', show)
 
     /**
-     * Show and hide the form for section update
+     * Show and hide the form for dish update
      * @param id
      */
     const changeShow = (id) => {

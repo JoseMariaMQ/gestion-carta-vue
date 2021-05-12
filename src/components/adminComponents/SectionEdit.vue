@@ -1,6 +1,5 @@
 <template>
   <div v-if="sectionProps" class="container rounded-top mt-2 mb-4">
-<!--    <div v-for="section in sections" :key="section.id">-->
       <div class="row alert alert-primary p-0 mb-2">
         <div class="col-9 col-sm-10 p-0">
           <h2 class="ml-2">{{ sectionProps.name }}</h2>
@@ -42,9 +41,8 @@
 
       <!--   Aquí van los platos, postres y bebidas   -->
       <Dish v-bind:section="sectionProps"></Dish>
-
+      <Dessert v-bind:section="sectionProps"></Dessert>
     </div>
-<!--  </div>-->
 </template>
 
 <script>
@@ -54,6 +52,7 @@ import FormNewDessert from "./FormNewDessert";
 import FormNewDrink from "./FormNewDrink";
 import FormNewChoose from "./FormNewChoose";
 import Dish from "./Dish";
+import Dessert from "./Dessert";
 import {useFetchUpdateSection} from "../../hooks/useFetchUpdateSection";
 import {useFetchDeleteSection} from "../../hooks/useFetchDeleteSection";
 
@@ -67,7 +66,8 @@ export default {
     FormNewDessert,
     FormNewDrink,
     FormNewChoose,
-    Dish
+    Dish,
+    Dessert
   },
   setup(props) {
     const show = reactive({
@@ -75,7 +75,7 @@ export default {
       show2: null
     })
     const sectionProps = ref(props.section)
-    provide('sectionDish', sectionProps)
+    provide('section', sectionProps)
 
     const sectionDataUpdate = ref({
       name: sectionProps.value.name,

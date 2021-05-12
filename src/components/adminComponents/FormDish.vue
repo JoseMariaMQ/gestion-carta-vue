@@ -125,9 +125,9 @@ export default {
     dish: Object
   },
   setup(props) {
-    const sectionDishUpdate = inject('sectionDish', undefined)
-    const show = inject('show', undefined)
-    const newDish = inject('newDish')
+    const sectionDishUpdate = inject('section', undefined)
+    const show = inject('showDish', undefined)
+    const newDish = inject('newDish', undefined)
     /**
      * Show and hide the form for dish update
      * @param id
