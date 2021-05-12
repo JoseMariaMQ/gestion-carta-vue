@@ -20,8 +20,6 @@
       <FontAwesomeIcon v-if="contact.name.toLowerCase() === 'instagram' && contact.url" :icon="['fab', 'instagram-square']" class="display-6"/>
       <FontAwesomeIcon v-if="contact.name.toLowerCase() === 'google maps' && contact.url" :icon="['fas', 'map-marker-alt']" class="display-6"/>
     </a>
-
-
   </header>
 </template>
 
