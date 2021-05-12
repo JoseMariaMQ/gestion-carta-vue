@@ -1,6 +1,6 @@
 <template>
   <div v-for="drink in drinks" :key="drink.id">
-    <div class="row alert alert-danger p-0 mb-0">
+    <div v-if="!drink.hidden" class="row alert alert-danger p-0 mb-0">
       <span class="col-2 col-sm-1 p-0">
         <img v-if="drink.picture" :src="drink.picture.url" alt="Dish" class="img-thumbnail img-children">
       </span>

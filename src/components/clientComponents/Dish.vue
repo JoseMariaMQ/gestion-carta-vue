@@ -1,6 +1,6 @@
 <template>
   <div v-for="dish in dishes" :key="dish.id">
-    <div type="button" @click="changeShow(dish.id)" class="row alert alert-danger p-0 mb-0">
+    <div v-if="!dish.hidden" type="button" @click="changeShow(dish.id)" class="row alert alert-danger p-0 mb-0">
       <span class="col-2 col-sm-1 p-0">
         <img v-if="dish.picture" :src="dish.picture.url" alt="Dish" class="img-thumbnail img-children">
       </span>
