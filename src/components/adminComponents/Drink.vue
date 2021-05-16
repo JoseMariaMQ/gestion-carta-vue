@@ -8,7 +8,7 @@
         <span class="d-flex justify-content-center h6 mb-1">{{drink.name}}</span>
         <div class="d-flex justify-content-center">
           <button @click="setHidden(!drink.hidden, drink.id, drink.section_id)" :class="drink.hidden ? 'btn btn-success btn-sm' : 'btn btn-dark btn-sm'">{{drink.hidden ? 'MOSTRAR' : 'OCULTAR'}}</button>
-          <button @click="changeShow(drink.id)" class="btn btn-warning btn-sm mx-2">EDITAR</button>
+          <button @click="changeShow(drink.id)" class="btn btn-warning btn-sm mx-2">{{show.show1 && show.show2 === drink.id ? 'CANCELAR' : 'EDITAR'}}</button>
           <button @click="deleteDrink(section.id, drink.id)" class="btn btn-danger btn-sm">ELIMINAR</button>
         </div>
       </div>

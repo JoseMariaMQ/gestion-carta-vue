@@ -8,7 +8,7 @@
         <span class="d-flex justify-content-center h6 mb-1">{{dish.name}}</span>
         <div class="d-flex justify-content-center">
           <button @click="setHidden(!dish.hidden, dish.id, dish.section_id)" :class="dish.hidden ? 'btn btn-success btn-sm' : 'btn btn-dark btn-sm'">{{dish.hidden ? 'MOSTRAR' : 'OCULTAR'}}</button>
-          <button @click="changeShow(dish.id)" class="btn btn-warning btn-sm mx-2">EDITAR</button>
+          <button @click="changeShow(dish.id)" class="btn btn-warning btn-sm mx-2">{{show.show1 && show.show2 === dish.id ? 'CANCELAR' : 'EDITAR'}}</button>
           <button @click="deleteDish(section.id, dish.id)" class="btn btn-danger btn-sm">ELIMINAR</button>
         </div>
       </div>
