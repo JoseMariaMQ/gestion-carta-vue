@@ -1,6 +1,6 @@
 import {ref, onMounted} from 'vue'
 
-export const useFetchHeader = (url) => {
+export const useFetchHeader = () => {
     const contacts = ref([])
 
     onMounted(async () => {

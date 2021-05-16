@@ -12,14 +12,14 @@
           <form @submit.prevent="storeDish">
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text">
+                <span class="input-group-text my-2">
                   <FontAwesomeIcon :icon="['fas', 'user']"/>
                 </span>
               </div>
               <input
                   type="text"
                   name="email"
-                  class="form-control"
+                  class="form-control my-2"
                   placeholder="email"
                   v-model="credentials.email"
               />
@@ -27,33 +27,22 @@
             </div>
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text">
+                <span class="input-group-text my-2">
                   <FontAwesomeIcon :icon="['fas', 'key']"/>
                 </span>
               </div>
               <input
                   type="password"
                   name="password"
-                  class="form-control"
+                  class="form-control my-2"
                   placeholder="password"
                   v-model="credentials.password"
               />
             </div>
-            <div class="row align-items-center remember">
-              <input type="checkbox"/>Remember Me
-            </div>
             <div class="form-group">
-              <input type="submit" value="Login" class="btn float-right login_btn"/>
+              <input type="submit" value="Login" class="btn float-right login_btn my-2"/>
             </div>
           </form>
-        </div>
-        <div class="card-footer">
-<!--          <div class="d-flex justify-content-center links">
-          Don't have an account?<a href="#">Sign Up</a>
-          </div>-->
-          <div class="d-flex justify-content-center">
-            <a href="/login">Forgot your password?</a>
-          </div>
         </div>
       </div>
     </div>
@@ -92,7 +81,7 @@ export default {
 
 <style scoped>
 .card{
-  height: 350px;
+  height: 280px;
   margin-top: auto;
   margin-bottom: auto;
   width: 400px;
@@ -127,10 +116,6 @@ export default {
   border:0 !important;
 }
 
-.remember{
-  color: white;
-}
-
 .remember input
 {
   width: 20px;
@@ -148,10 +133,6 @@ export default {
 .login_btn:hover{
   color: black;
   background-color: white;
-}
-
-.links{
-  color: white;
 }
 
 .links a{

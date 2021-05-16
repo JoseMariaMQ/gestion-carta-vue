@@ -34,7 +34,7 @@ export default {
     Drink
   },
   setup() {
-    const menu = ref(useFetchMenu())
+    const menu = ref(useFetchMenu("http://127.0.0.1:8000/api/menu"))
     return {menu}
   }
 }

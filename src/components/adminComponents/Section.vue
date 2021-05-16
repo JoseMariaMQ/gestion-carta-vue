@@ -38,7 +38,7 @@ export default {
   },
   setup() {
 
-    const menu = ref(useFetchMenu())
+    const menu = ref(useFetchMenu("http://127.0.0.1:8000/api/section"))
 
     const newSection = ref(false)
     const showForm = () => {
