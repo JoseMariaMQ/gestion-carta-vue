@@ -31,6 +31,7 @@ import { faWhatsappSquare, faFacebookSquare, faInstagramSquare } from '@fortawes
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from "../router";
 import {ref} from "vue";
+import {useFetchLogout} from "../hooks/useFetchLogout";
 library.add(faPhoneSquare, faMapMarkerAlt, faWhatsappSquare, faFacebookSquare, faInstagramSquare, faSignInAlt, faSignOutAlt, faUser)
 
 export default {
@@ -49,6 +50,7 @@ export default {
     }
 
     const logout = () => {
+      useFetchLogout()
       localStorage.removeItem('jwtToken')
       localStorage.removeItem('tokenExpires')
       accessToken.value = localStorage.getItem('jwtToken') && new Date(localStorage.getItem('tokenExpires')).getTime() > Date.now()
